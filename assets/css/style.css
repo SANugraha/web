@@ -1,8 +1,7 @@
 @IMPORT URL("HTTPS://FONTS.GOOGLEAPIS.COM/CSS2?FAMILY=ROBOTO:WGHT@300;400;500;700;900&DISPLAY=SWAP");
-
 :ROOT {
   --PRIMARYTEXTCOLOR: #232E35; /* UNTUK TITLE ATAU JUDUL */
-  --SECONDARYTEXTCOLOR: #656D72; /* UNTUK TEXT BIASA SEPERTI PARAGRAPH CONTOHNYA */
+  --SECONDARYTEXTCOLOR: #1f5a7f; /* UNTUK TEXT BIASA SEPERTI PARAGRAPH CONTOHNYA */
 
   --BORDERCOLOR: #F1F1F1;
   --LINECOLOR: #D9D9D9; /* UNTUK LINE DI PRE-TITLE */
@@ -242,6 +241,165 @@ A {
   TOP: 50%;
 }
 
+/* Reset Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo a {
+  font-size: 24px;
+  font-weight: bold;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+  color: #007bff;
+}
+
+.btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: #000;
+}
+
+/* Hero Section Styles */
+#HERO {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px 30px 30px; /* Adjusted padding for a cleaner space */
+  gap: 20px;
+  margin-top: 80px; /* Ensures space between header and section */
+}
+
+.HERO-LEFT {
+  max-width: 50%;
+}
+
+.HERO-LEFT .PRE-TITLE {
+  font-size: 18px;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.HERO-LEFT .HERO-NAME {
+  font-size: 48px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.HERO-LEFT .HERO-NAME span {
+  color: #007bff;
+}
+
+.HERO-LEFT p {
+  font-size: 18px;
+  color: #333;
+}
+
+.HERO-RIGHT img {
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  #HERO {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .HERO-LEFT {
+    max-width: 100%;
+  }
+
+  .HERO-RIGHT img {
+    max-width: 100%;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    top: 70px;
+    right: 30px;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+}
 
 /* Reset Styles */
 * {
@@ -409,10 +567,44 @@ body {
 }
 /* LAYOUTS */
 .GRID-3 {
-  DISPLAY: GRID;
+  DISPLAY: flex;
   /* GRID-TEMPLATE-COLUMNS: 1FR 1FR 1FR; USE THIS FIRST, USE CODE BELOW WHEN ITS TIME FOR EXPLAINING RESPONSIVE DESIGN PART */
-  GRID-TEMPLATE-COLUMNS: REPEAT(AUTO-FIT, MINMAX(250PX, 1FR));
-  GAP: 3REM;
+  max-width: 510px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+#next, #back{
+  position: absolute;
+  color: black;
+  font-size: 1rem;
+  background: rgba(184, 184, 184, 0.348);
+  bottom: 1px;
+  width: 30px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  z-index: 5;
+  cursor: pointer;
+  border-radius: 100%;
+}
+
+#next{
+  right: 1px;
+}
+#back{
+  left:1px
+}
+
+.PORTFOLIO {
+  BORDER-RADIUS: VAR(--ITEMBORDERRADIUS);
+  min-width: 100%;
+  OVERFLOW: HIDDEN; /* SUPAYA GAMBAR YANG DIATAS ITU DIA NGIKUT BORDER RADIUSNYA, KARENA YANG DIKASIH BORDER RADIUS DISINI ADALAH DIV PORTFOLIO INI */
+  BORDER: 1PX SOLID VAR(--BORDERCOLOR);
+  transform: translateX(0%);
+  transition: all .5s;
 }
 
 /* --- LOGO AND NAVIGATION MENU --- */
@@ -553,11 +745,7 @@ NAV UL LI A {
   PADDING: VAR(--SECTIONPADDING);
 }
 
-.PORTFOLIO {
-  BORDER-RADIUS: VAR(--ITEMBORDERRADIUS);
-  OVERFLOW: HIDDEN; /* SUPAYA GAMBAR YANG DIATAS ITU DIA NGIKUT BORDER RADIUSNYA, KARENA YANG DIKASIH BORDER RADIUS DISINI ADALAH DIV PORTFOLIO INI */
-  BORDER: 1PX SOLID VAR(--BORDERCOLOR);
-}
+
 
 .PORTFOLIO-COVER {
   HEIGHT: 250PX;
@@ -697,6 +885,8 @@ NAV UL LI A {
   GRID-TEMPLATE-COLUMNS: REPEAT(AUTO-FIT, MINMAX(350PX, 1FR));
   GAP: 3REM;
 }
+
+
 
 .CONTACT-FORM DIV {
   MARGIN-BOTTOM: 1.4REM;
