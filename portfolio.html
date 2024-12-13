@@ -168,6 +168,61 @@
         display: flex;
       }
     }
+     /*footer*/
+     * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    footer {
+      background-color: #1f2937;
+      color: #ffffff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .footer-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 10px;
+    }
+
+    .footer-icons a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .footer-icons a:hover {
+      transform: scale(1.2);
+      color: #6c63ff;
+    }
+
+    .footer-icons svg {
+      width: 24px;
+      height: 24px;
+      fill: currentColor;
+    }
+
+    .footer-text {
+      font-size: 0.9rem;
+      margin-top: 10px;
+      color: #d1d5db;
+    }
+
+    .footer-text span {
+      color: #6c63ff;
+      font-weight: bold;
+    }
   </style>
 </head>
 
@@ -317,37 +372,16 @@
               <DIV CLASS="PORTFOLIO-TITLE">
                 <H4>ARTIFICIAL INTELLIGENCE</H4>
                 <A HREF="/" CLASS="PORTFOLIO-LINK">
-                  <svg id='Artificial_Intelligence_24' width='24' height='24' viewBox='0 0 24 24'
-                    xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
-                    <rect width='24' height='24' stroke='none' fill='#000000' opacity='0' />
-
-
-                    <g transform="matrix(0.31 0 0 0.31 12 12)">
-                      <g>
-                        <g transform="matrix(1 0 0 1 0 21.5)" id="Layer_1">
-                          <linearGradient id="SVGID_SVGID_1__1" gradientUnits="userSpaceOnUse"
-                            gradientTransform="matrix(1 0 0 -1 0 318)" x1="32" y1="268.333" x2="32" y2="261.118">
-                            <stop offset="0%" style="stop-color:rgb(109,199,255);stop-opacity: 1" />
-                            <stop offset="100%" style="stop-color:rgb(230,171,255);stop-opacity: 1" />
-                          </linearGradient>
-                          <path
-                            style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: url(#SVGID_SVGID_1__1); fill-rule: nonzero; opacity: 1;"
-                            transform=" translate(-32, -53.5)" d="M 36 56 L 28 56 L 28 53 L 32 51 L 36 53 L 36 56 z"
-                            stroke-linecap="round" />
-                        </g>
-                        <g transform="matrix(1 0 0 1 0 0)" id="Layer_1">
-                          <linearGradient id="SVGID_SVGID_2__2" gradientUnits="userSpaceOnUse"
-                            gradientTransform="matrix(1 0 0 1 0 0)" x1="32" y1="7" x2="32" y2="56.397">
-                            <stop offset="0%" style="stop-color:rgb(26,109,255);stop-opacity: 1" />
-                            <stop offset="100%" style="stop-color:rgb(200,34,255);stop-opacity: 1" />
-                          </linearGradient>
-                          <path
-                            style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: url(#SVGID_SVGID_2__2); fill-rule: nonzero; opacity: 1;"
-                            transform=" translate(-32, -32)"
-                            d="M 52 14 L 48 14 L 48 11 C 48 8.2 45.8 6 43 6 L 36 6 C 34.4 6 32.9 6.8 32 8 C 31.1 6.8 29.6 6 28 6 L 21 6 C 18.2 6 16 8.2 16 11 L 16 14 L 12 14 C 9.2 14 7 16.2 7 19 L 7 29 C 7 31.5 8.8 33.5 11.2 33.9 C 11.1 34.3 11 34.6 11 35 L 11 45 C 11 47.8 13.2 50 16 50 L 17.1 50 C 17.6 52.3 19.6 54 22 54 L 26 54 L 26 55 C 26 56.7 27.3 58 29 58 L 35 58 C 36.7 58 38 56.7 38 55 L 38 54 L 42 54 C 44.4 54 46.4 52.3 46.9 50 L 48 50 C 50.8 50 53 47.8 53 45 L 53 35 C 53 34.6 52.9 34.3 52.8 33.9 C 55.199999999999996 33.5 57 31.5 57 29 L 57 19 C 57 16.2 54.8 14 52 14 z M 36 55 C 36 55.6 35.6 56 35 56 L 29 56 C 28.4 56 28 55.6 28 55 L 28 54 C 29.6 54 31.1 53.2 32 52 C 32.9 53.2 34.4 54 36 54 L 36 55 z M 55 29 C 55 30.7 53.7 32 52 32 L 50 32 L 46.8 32 C 46.4 30.8 45.3 30 44 30 C 42.3 30 41 31.3 41 33 C 41 34.7 42.3 36 44 36 C 45.3 36 46.4 35.2 46.8 34 L 50 34 C 50.6 34 51 34.4 51 35 L 51 45 C 51 46.7 49.7 48 48 48 L 44 48 C 43.4 48 43 47.6 43 47 L 43 43 C 43 41.3 41.7 40 40 40 L 37 40 L 37 42 L 40 42 C 40.6 42 41 42.4 41 43 L 41 47 C 41 48.7 42.3 50 44 50 L 44.8 50 C 44.4 51.2 43.3 52 42 52 L 36 52 C 34.3 52 33 50.7 33 49 L 33 48 L 31 48 L 31 49 C 31 50.7 29.7 52 28 52 L 22 52 C 20.7 52 19.6 51.2 19.2 50 L 20 50 C 21.7 50 23 48.7 23 47 L 23 42 C 23 41.4 23.4 41 24 41 L 25.2 41 C 25.599999999999998 42.2 26.7 43 28 43 C 29.7 43 31 41.7 31 40 C 31 38.3 29.7 37 28 37 C 26.7 37 25.6 37.8 25.2 39 L 24 39 C 22.3 39 21 40.3 21 42 L 21 47 C 21 47.6 20.6 48 20 48 L 16 48 C 14.3 48 13 46.7 13 45 L 13 35 C 13 34.4 13.4 34 14 34 L 18 34 L 18 32 L 12 32 C 10.3 32 9 30.7 9 29 L 9 19 C 9 17.3 10.3 16 12 16 L 17 16 C 17.6 16 18 16.4 18 17 L 18 19.2 C 16.8 19.599999999999998 16 20.7 16 22 C 16 23.7 17.3 25 19 25 C 20.7 25 22 23.7 22 22 C 22 20.7 21.2 19.6 20 19.2 L 20 17 C 20 15.7 19.2 14.6 18 14.2 L 18 11 C 18 9.3 19.3 8 21 8 L 28 8 C 29.7 8 31 9.3 31 11 L 31 28 C 31 28.6 30.6 29 30 29 L 26 29 L 26 31 L 30 31 C 31.7 31 33 29.7 33 28 L 33 24.8 C 33.3 24.900000000000002 33.6 25 34 25 L 35.2 25 C 35.6 26.2 36.7 27 38 27 C 39.7 27 41 25.7 41 24 C 41 22.3 39.7 21 38 21 C 36.7 21 35.6 21.8 35.2 23 L 34 23 C 33.4 23 33 22.6 33 22 L 33 11 C 33 9.3 34.3 8 36 8 L 43 8 C 44.7 8 46 9.3 46 11 L 46 14.2 C 44.8 14.6 44 15.7 44 17 L 44 20 L 46 20 L 46 17 C 46 16.4 46.4 16 47 16 L 52 16 C 53.7 16 55 17.3 55 19 L 55 29 z M 45 33 C 45 33.6 44.6 34 44 34 C 43.4 34 43 33.6 43 33 C 43 32.4 43.4 32 44 32 C 44.6 32 45 32.4 45 33 z M 27 40 C 27 39.4 27.4 39 28 39 C 28.6 39 29 39.4 29 40 C 29 40.6 28.6 41 28 41 C 27.4 41 27 40.6 27 40 z M 20 22 C 20 22.6 19.6 23 19 23 C 18.4 23 18 22.6 18 22 C 18 21.4 18.4 21 19 21 C 19.6 21 20 21.4 20 22 z M 37 24 C 37 23.4 37.4 23 38 23 C 38.6 23 39 23.4 39 24 C 39 24.6 38.6 25 38 25 C 37.4 25 37 24.6 37 24 z"
-                            stroke-linecap="round" />
-                        </g>
-                      </g>
+                  <svg id='LinkedIn_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/>
+                    <g transform="matrix(0.42 0 0 0.42 12 12)" >
+                    <g style>
+                    <g transform="matrix(1 0 0 1 0 0)" >
+                    <path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(2,136,209); fill-rule: nonzero; opacity: 1;" transform=" translate(-24, -24)" d="M 42 37 C 42 39.762 39.762 42 37 42 L 11 42 C 8.239 42 6 39.762 6 37 L 6 11 C 6 8.238 8.239 6 11 6 L 37 6 C 39.762 6 42 8.238 42 11 L 42 37 z" stroke-linecap="round" />
+                    </g>
+                    <g transform="matrix(1 0 0 1 0 0)" >
+                    <path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" transform=" translate(-24, -24)" d="M 12 19 L 17 19 L 17 36 L 12 36 z M 14.485 17 L 14.456999999999999 17 C 12.965 17 12 15.888 12 14.499 C 12 13.08 12.995 12 14.514 12 C 16.035 12 16.972 13.08 17 14.499 C 17 15.887 16.035 17 14.485 17 z M 36 36 L 31 36 L 31 26.901 C 31 24.703 29.775 23.203 27.808 23.203 C 26.307 23.203 25.495 24.215 25.101 25.192999999999998 C 24.957 25.543 25 26.511 25 27 L 25 36 L 20 36 L 20 19 L 25 19 L 25 21.616 C 25.721 20.5 26.85 19 29.738 19 C 33.316 19 35.999 21.25 35.999 26.274 L 36 36 L 36 36 z" stroke-linecap="round" />
+                    </g>
+                    </g
                     </g>
                   </svg>
                 </A>
@@ -424,6 +458,40 @@
     </DIV>
   </SECTION>
   <!-- END PORTFOLIOS -->
+  <footer>
+    <div class="footer-icons">
+      <!-- Home Icon -->
+      <a href="#">
+        <svg id='Home_Office_24' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12 3L2 12h3v7h6v-4h2v4h6v-7h3z" />
+        </svg>
+      </a>
+
+      <!-- Instagram Icon -->
+      <a href="https://www.instagram.com/sa.n_______" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12 2.163c3.204 0 3.584.012 4.849.07 1.366.062 2.633.343 3.608 1.318.975.975 1.256 2.242 1.318 3.608.058 1.265.07 1.645.07 4.849s-.012 3.584-.07 4.849c-.062 1.366-.343 2.633-1.318 3.608-.975.975-2.242 1.256-3.608 1.318-1.265.058-1.645.07-4.849.07s-3.584-.012-4.849-.07c-1.366-.062-2.633-.343-3.608-1.318-.975-.975-1.256-2.242-1.318-3.608-.058-1.265-.07-1.645-.07-4.849s.012-3.584.07-4.849c.062-1.366.343-2.633 1.318-3.608.975-.975 2.242-1.256 3.608-1.318C8.416 2.175 8.796 2.163 12 2.163zM12 0C8.741 0 8.332.014 7.052.072c-1.43.062-2.687.334-3.637 1.284C2.466 2.423 2.194 3.68 2.132 5.11.074 6.391 0 6.8 0 12c0 5.2.074 5.609 2.132 6.89.062 1.43.334 2.687 1.284 3.637.95.95 2.207 1.222 3.637 1.284 1.28.058 1.689.072 4.949.072s3.668-.014 4.949-.072c1.43-.062 2.687-.334 3.637-1.284.95-.95 1.222-2.207 1.284-3.637.058-1.28.072-1.689.072-4.949s-.014-3.668-.072-4.949c-.062-1.43-.334-2.687-1.284-3.637-.95-.95-2.207-1.222-3.637-1.284C15.668.014 15.259 0 12 0zM12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 100-12.324zM12 15.162A3.162 3.162 0 1112 8.838a3.162 3.162 0 010 6.324zM18.406 4.594a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z" />
+        </svg>
+      </a>
+
+      <!-- LinkedIn Icon -->
+      <a href="https://www.linkedin.com/in/saputraan" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M4.98 3c0 1.105-.885 2-1.98 2s-2-.895-2-2c0-1.105.885-2 2-2s1.98.895 1.98 2zM0 24h4V8H0v16zM7.5 8h3.764v2.163h.05c.524-.992 1.804-2.038 3.725-2.038C19.056 8 20 10.007 20 13.19V24h-4v-9.357c0-2.172-.03-4.972-3.043-4.972-3.043 0-3.507 2.376-3.507 4.827V24h-4V8z" />
+        </svg>
+      </a>
+
+      <!-- GitHub Icon -->
+      <a href="https://github.com/SANugraha" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.207 11.387.6.11.793-.26.793-.577v-2.234c-3.338.726-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.091-.746.084-.731.084-.731 1.205.084 1.838 1.237 1.838 1.237 1.07 1.835 2.809 1.304 3.495.996.108-.774.418-1.304.762-1.604-2.665-.3-5.466-1.334-5.466-5.93 0-1.31.468-2.382 1.236-3.221-.124-.302-.536-1.521.117-3.176 0 0 1.01-.322 3.31 1.23a11.49 11.49 0 013.02-.407c1.026.005 2.056.139 3.02.407 2.3-1.552 3.31-1.23 3.31-1.23.653 1.655.241 2.874.117 3.176.77.839 1.236 1.911 1.236 3.221 0 4.606-2.807 5.625-5.475 5.92.429.369.823 1.096.823 2.21v3.28c0 .321.192.694.801.576C20.565 21.795 24 17.297 24 12c0-6.627-5.373-12-12-12z" />
+        </svg>
+      </a>
+    </div>
+
+    <p class="footer-text">&#169;2024 - <span>SAN</span></p>
+  </footer>
+  
   <script>
     const burger = document.getElementById('burger');
     const navbarLinks = document.querySelector('.navbar-links');
