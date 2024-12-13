@@ -55,69 +55,50 @@ window.onbeforeunload = () => {
 //   })}
 // })
   
-const sliderWrapper = document.querySelector('.GRID-3');
-    const sliderItems = document.querySelectorAll('PORTFOLIO');
-    const leftArrow = document.getElementById('back');
-    const rightArrow = document.getElementById('next');
+document.addEventListener('DOMContentLoaded', () => {
+  const slider = document.querySelector('.GRID-3');
+  let isDragging = false;
+  let startX = 0;
+  let currentTranslate = 0;
+  let prevTranslate = 0;
 
-    let currentIndex = 0;
-    let isTouching = false;
-    let startX = 0;
-    let currentTranslate = 0;
-    let prevTranslate = 0;
+  // Helper to set the translation
+  const setSliderPosition = () => {
+    slider.style.transform = `translateX(${currentTranslate}px)`;
+    slider.style.scrollSnapAlign = 'proximity';
+  };
 
-    // Update slider position
-    function updateSliderPosition() {
-      sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+  // Handle touch start
+  slider.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    startX = e.touches[0].clientX;
+    prevTranslate = currentTranslate;
+    slider.style.transition = 'none'; // Disable smooth transition while dragging
+  });
+
+  // Handle touch move
+  slider.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+    const touchDelta = e.touches[0].clientX - startX;
+    currentTranslate = prevTranslate + touchDelta;
+    setSliderPosition();
+  });
+
+  // Handle touch end
+  slider.addEventListener('touchend', () => {
+    isDragging = false;
+    const sliderWidth = slider.offsetWidth;
+    const threshold = sliderWidth / 4;
+
+    if (currentTranslate - prevTranslate < -threshold) {
+      // Swipe left
+      currentTranslate -= sliderWidth;
+    } else if (currentTranslate - prevTranslate > threshold) {
+      // Swipe right
+      currentTranslate += sliderWidth;
     }
 
-    // Left arrow click event
-    leftArrow.addEventListener('click', () => {
-      if (currentIndex > 0) {
-        currentIndex--;
-        updateSliderPosition();
-      }
-    });
-
-    // Right arrow click event
-    rightArrow.addEventListener('click', () => {
-      if (currentIndex < sliderItems.length - 1) {
-        currentIndex++;
-        updateSliderPosition();
-      }
-    });
-
-    // Touch start
-    sliderWrapper.addEventListener('touchstart', (e) => {
-      isTouching = true;
-      startX = e.touches[0].clientX;
-      prevTranslate = currentTranslate;
-    });
-
-    // Touch move
-    sliderWrapper.addEventListener('touchmove', (e) => {
-      if (!isTouching) return;
-
-      const currentX = e.touches[0].clientX;
-      const diffX = currentX - startX;
-
-      currentTranslate = prevTranslate + diffX;
-      sliderWrapper.style.transform = `translateX(${currentTranslate}px)`;
-    });
-
-    // Touch end
-    sliderWrapper.addEventListener('touchend', (e) => {
-      isTouching = false;
-
-      const movedBy = currentTranslate - prevTranslate;
-
-      if (movedBy < -50 && currentIndex < sliderItems.length - 1) {
-        currentIndex++;
-      } else if (movedBy > 50 && currentIndex > 0) {
-        currentIndex--;
-      }
-
-      updateSliderPosition();
-    });
-  
-  
+    slider.style.transition = 'transform 0.3s ease-in-out';
+    setSliderPosition();
+  });
+});
