@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Slider</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f0f0f0;
+        }
+
+        .slider-container {
+            width: 90%;
+            max-width: 400px;
+            overflow: hidden;
+            position: relative;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card {
+            min-width: 100%;
+            padding: 20px;
+            text-align: center;
+            background: white;
+        }
+
+        .card h2 {
+            margin-bottom: 10px;
+        }
+
+        .buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .buttons button {
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .buttons button:hover {
+            background: black;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slider-container">
+        <div class="slider">
+            <div class="card">
+                <h2>Card 1</h2>
+                <p>Swipe atau klik tombol untuk bergeser.</p>
+            </div>
+            <div class="card">
+                <h2>Card 2</h2>
+                <p>Ini adalah kartu kedua.</p>
+            </div>
+            <div class="card">
+                <h2>Card 3</h2>
+                <p>Geser lagi untuk melihat lebih banyak.</p>
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="prev">&lt;</button>
+            <button id="next">&gt;</button>
+        </div>
+    </div>
+
+    <script>
+        const slider = document.querySelector('.slider');
+        const prevBtn = document.getElementById('prev');
+        const nextBtn = document.getElementById('next');
+
+        let index = 0;
+        const totalCards = document.querySelectorAll('.card').length;
+
+        function updateSlider() {
+            slider.style.transform = `translateX(-${index * 100}%`;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (index < totalCards - 1) {
+                index++;
+                updateSlider();
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (index > 0) {
+                index--;
+                updateSlider();
+            }
+        });
+
+        // Swipe Gesture
+        let startX = 0;
+        slider.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+
+        slider.addEventListener('touchend', (e) => {
+            let endX = e.changedTouches[0].clientX;
+            let diff = startX - endX;
+
+            if (diff > 50 && index < totalCards - 1) {
+                index++;
+            } else if (diff < -50 && index > 0) {
+                index--;
+            }
+
+            updateSlider();
+        });
+    </script>
+
+</body>
+</html>
