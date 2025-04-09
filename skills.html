@@ -4,7 +4,7 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <LINK REL="STYLESHEET" HREF="assets/css/style.css" />
-   <title>Document</title>
+   <title>Skills - Saputra Adi Nugraha</title>
    <style>
     /* Reset Styles */
     * {
@@ -74,74 +74,149 @@
     .burger {
       display: none;
       flex-direction: column;
-      gap: 5px;
+      gap: 7px;
       cursor: pointer;
+      z-index: 99;
+      position: relative;
     }
 
     .burger div {
       width: 25px;
-      height: 3px;
+      height: 2px;
       background-color: #000;
+      transition: all 0.3s ease;
     }
 
-    /* Hero Section Styles */
-    #HERO {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 100px 30px 30px; /* Adjusted padding for a cleaner space */
-      gap: 20px;
-      margin-top: 80px; /* Ensures space between header and section */
+    /* Burger Animation Classes */
+    .burger.active div:nth-child(1) {
+      transform: rotate(-45deg) translate(-5px, 6px);
     }
 
-    .HERO-LEFT {
-      max-width: 50%;
+    .burger.active div:nth-child(2) {
+      opacity: 0;
     }
 
-    .HERO-LEFT .PRE-TITLE {
-      font-size: 18px;
-      font-weight: bold;
-      color: #007bff;
+    .burger.active div:nth-child(3) {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    /* Modern Skills Section Styles */
+    #SKILLS {
+      padding: 120px 0 80px;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    }
+
+    .skills-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .PRE-TITLE {
+      color: #0073e6;
+      font-weight: 600;
+      letter-spacing: 2px;
       margin-bottom: 10px;
+      text-align: center;
+      position: relative;
+      display: inline-block;
     }
 
-    .HERO-LEFT .HERO-NAME {
-      font-size: 48px;
-      font-weight: bold;
-      color: #000;
-      margin-bottom: 20px;
+    .SECTION-TITLE {
+      font-size: 2.5rem;
+      color: #2d3436;
+      margin-bottom: 60px;
+      text-align: center;
+      font-weight: 700;
     }
 
-    .HERO-LEFT .HERO-NAME span {
-      color: #007bff;
+    .SKILLS-GRID {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: start;
     }
 
-    .HERO-LEFT p {
-      font-size: 18px;
-      color: #333;
+    .education {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 25px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+      position: relative;
+      border-left: 4px solid #0073e6;
     }
 
-    .HERO-RIGHT img {
-      max-width: 400px;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    .education:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     }
 
-    /* Responsive Styles */
+    .education-title {
+      font-size: 1.2rem;
+      color: #2d3436;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .education-years {
+      color: #0073e6;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-top: 15px;
+    }
+
+    .skills-right {
+      background: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .skills-right p {
+      color: #2d3436;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .skills-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .skills-list ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .skills-list li {
+      padding: 12px 0;
+      color: #2d3436;
+      position: relative;
+      padding-left: 25px;
+      font-weight: 500;
+    }
+
+    .skills-list li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #0073e6;
+    }
+
     @media (max-width: 768px) {
-      #HERO {
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
+      .SKILLS-GRID {
+        grid-template-columns: 1fr;
       }
 
-      .HERO-LEFT {
-        max-width: 100%;
+      .SECTION-TITLE {
+        font-size: 2rem;
       }
 
-      .HERO-RIGHT img {
-        max-width: 100%;
+      .skills-right {
+        padding: 30px;
       }
 
       .burger {
@@ -150,19 +225,23 @@
 
       .navbar-links {
         display: none;
-        flex-direction: column;
-        gap: 15px;
-        position: absolute;
-        top: 70px;
-        right: 30px;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 250px;
         background-color: #ffffff;
-        padding: 20px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        border-radius: 5px;
+        flex-direction: column;
+        padding: 80px 40px;
+        gap: 20px;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(100%);
       }
 
       .navbar-links.active {
         display: flex;
+        transform: translateX(0);
       }
     }
     /*footer*/
@@ -251,58 +330,46 @@
     </div>
    <!-- SKILLS & EDUCATION -->
    <SECTION ID="SKILLS">
-      <DIV CLASS="SKILLS MAIN-CONTAINER">
+      <DIV CLASS="skills-container">
         <H3 CLASS="PRE-TITLE">LEARNING PATH</H3>
-        <H1 CLASS="SECTION-TITLE">SKILLS & EDUCATION</H1>
+        <H1 CLASS="SECTION-TITLE">Education & Skills</H1>
 
         <DIV CLASS="SKILLS-GRID">
           <DIV CLASS="SKILLS-LEFT">
-            <DIV CLASS="EDUCATION">
-              <DIV CLASS="LINE">
-                <DIV></DIV>
-              </DIV>
-              <DIV CLASS="EDUCATION-INFO">
-                <H4 CLASS="EDUCATION-TITLE">UNIVERSITAS NEGERI SEMARANG</H4>
-                <P>COLLEGE STUDENT - COMPUTER ENGINEERING</P>
-                <H4 CLASS="EDUCATION-YEARS">2022 - until now</H4>
-              </DIV>
+            <DIV CLASS="education">
+              <H4 CLASS="education-title">UNIVERSITAS NEGERI SEMARANG</H4>
+              <P>Computer Engineering Student</P>
+              <DIV CLASS="education-years">2022 - Present</DIV>
             </DIV>
-            <DIV CLASS="EDUCATION">
-              <DIV CLASS="LINE">
-                <DIV></DIV>
-              </DIV>
-              <DIV CLASS="EDUCATION-INFO">
-                <H4 CLASS="EDUCATION-TITLE">SMA NEGERI 1 GODONG</H4>
-                <P>STUDENT - MIPA</P>
-                <H4 CLASS="EDUCATION-YEARS">2019 - 2022</H4>
-              </DIV>
+
+            <DIV CLASS="education">
+              <H4 CLASS="education-title">SMA NEGERI 1 GODONG</H4>
+              <P>Mathematics and Natural Sciences</P>
+              <DIV CLASS="education-years">2019 - 2022</DIV>
             </DIV>
-            <DIV CLASS="EDUCATION">
-              <DIV CLASS="LINE">
-                <DIV></DIV>
-              </DIV>
-              <DIV CLASS="EDUCATION-INFO">
-                <H4 CLASS="EDUCATION-TITLE">SMP N 1 GODONG</H4>
-                <P>STUDENT - FAVORIT CLASS(9I)</P>
-                <H4 CLASS="EDUCATION-YEARS">2016 - 2019</H4>
-              </DIV>
+
+            <DIV CLASS="education">
+              <H4 CLASS="education-title">SMP N 1 GODONG</H4>
+              <P>Favorite Class (9I)</P>
+              <DIV CLASS="education-years">2016 - 2019</DIV>
             </DIV>
           </DIV>
 
-          <DIV CLASS="SKILLS-RIGHT">
+          <DIV CLASS="skills-right">
             <P>
-              I am an IoT Engineer focused on developing smart and connected solutions.
-              I am dedicated to creating innovative IoT solutions that enhance efficiency and automation.
-              My expertise includes:
+              As an IoT Engineer, I specialize in developing smart and connected solutions. 
+              My passion lies in creating innovative IoT applications that enhance efficiency 
+              and automation. With a strong foundation in both hardware and software development, 
+              I bring ideas to life through:
             </P>
 
-            <DIV CLASS="SKILLS-LIST">
+            <DIV CLASS="skills-list">
               <UL>
-                <LI>Python</LI>
-                <LI>C++ </LI>
-                <LI>CSS </LI>
-                <LI>HTML</LI>
-                <LI>JAVA SCRIPT</LI>
+                <LI>Python Development</LI>
+                <LI>C++ Programming</LI>
+                <LI>Modern CSS</LI>
+                <LI>HTML5</LI>
+                <LI>JavaScript ES6+</LI>
               </UL>
 
               <UL>
@@ -310,7 +377,7 @@
                 <LI>Sensor Integration</LI>
                 <LI>Cloud Platforms</LI>
                 <LI>Data Processing</LI>
-                <LI>Mobile Applications</LI>
+                <LI>Mobile App Development</LI>
               </UL>
             </DIV>
           </DIV>
@@ -322,28 +389,28 @@
     <footer>
       <div class="footer-icons">
         <!-- Home Icon -->
-        <a href="#">
-          <svg id='Home_Office_24' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <a href="#" aria-label="Home">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path d="M12 3L2 12h3v7h6v-4h2v4h6v-7h3z" />
           </svg>
         </a>
   
         <!-- Instagram Icon -->
-        <a href="https://www.instagram.com/sa.n_______" target="_blank">
+        <a href="https://www.instagram.com/sa.n_______" target="_blank" aria-label="Instagram">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M12 2.163c3.204 0 3.584.012 4.849.07 1.366.062 2.633.343 3.608 1.318.975.975 1.256 2.242 1.318 3.608.058 1.265.07 1.645.07 4.849s-.012 3.584-.07 4.849c-.062 1.366-.343 2.633-1.318 3.608-.975.975-2.242 1.256-3.608 1.318-1.265.058-1.645.07-4.849.07s-3.584-.012-4.849-.07c-1.366-.062-2.633-.343-3.608-1.318-.975-.975-1.256-2.242-1.318-3.608-.058-1.265-.07-1.645-.07-4.849s.012-3.584.07-4.849c.062-1.366.343-2.633 1.318-3.608.975-.975 2.242-1.256 3.608-1.318C8.416 2.175 8.796 2.163 12 2.163zM12 0C8.741 0 8.332.014 7.052.072c-1.43.062-2.687.334-3.637 1.284C2.466 2.423 2.194 3.68 2.132 5.11.074 6.391 0 6.8 0 12c0 5.2.074 5.609 2.132 6.89.062 1.43.334 2.687 1.284 3.637.95.95 2.207 1.222 3.637 1.284 1.28.058 1.689.072 4.949.072s3.668-.014 4.949-.072c1.43-.062 2.687-.334 3.637-1.284.95-.95 1.222-2.207 1.284-3.637.058-1.28.072-1.689.072-4.949s-.014-3.668-.072-4.949c-.062-1.43-.334-2.687-1.284-3.637-.95-.95-2.207-1.222-3.637-1.284C15.668.014 15.259 0 12 0zM12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 100-12.324zM12 15.162A3.162 3.162 0 1112 8.838a3.162 3.162 0 010 6.324zM18.406 4.594a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z" />
+            <path d="M12 2.163c3.204 0 3.584.012 4.849.07 1.366.062 2.633.343 3.608 1.318.975.975 1.256 2.242 1.318 3.608.058 1.265.07 1.645.07 4.849s-.012 3.584-.07 4.849c-.062 1.366-.343 2.633-1.318 3.608-.975.975-2.242 1.256-3.608 1.318-1.265.058-1.645.07-4.849s.012-3.584.07-4.849c.062-1.366.343-2.633 1.318-3.608.975-.975 2.242-1.256 3.608-1.318C8.416 2.175 8.796 2.163 12 2.163zM12 0C8.741 0 8.332.014 7.052.072c-1.43.062-2.687.334-3.637 1.284C2.466 2.423 2.194 3.68 2.132 5.11.074 6.391 0 6.8 0 12c0 5.2.074 5.609 2.132 6.89.062 1.43.334 2.687 1.284 3.637.95.95 2.207 1.222 3.637 1.284 1.28.058 1.689.072 4.949.072s3.668-.014 4.949-.072c1.43-.062 2.687-.334 3.637-1.284.95-.95 1.222-2.207 1.284-3.637.058-1.28.072-1.689.072-4.949s-.014-3.668-.072-4.949c-.062-1.43-.334-2.687-1.284-3.637-.95-.95-2.207-1.222-3.637-1.284C15.668.014 15.259 0 12 0zM12 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 100-12.324zM12 15.162A3.162 3.162 0 1112 8.838a3.162 3.162 0 010 6.324zM18.406 4.594a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z" />
           </svg>
         </a>
   
         <!-- LinkedIn Icon -->
-        <a href="https://www.linkedin.com/in/saputraan" target="_blank">
+        <a href="https://www.linkedin.com/in/saputraan" target="_blank" aria-label="LinkedIn">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path d="M4.98 3c0 1.105-.885 2-1.98 2s-2-.895-2-2c0-1.105.885-2 2-2s1.98.895 1.98 2zM0 24h4V8H0v16zM7.5 8h3.764v2.163h.05c.524-.992 1.804-2.038 3.725-2.038C19.056 8 20 10.007 20 13.19V24h-4v-9.357c0-2.172-.03-4.972-3.043-4.972-3.043 0-3.507 2.376-3.507 4.827V24h-4V8z" />
           </svg>
         </a>
   
         <!-- GitHub Icon -->
-        <a href="https://github.com/SANugraha" target="_blank">
+        <a href="https://github.com/SANugraha" target="_blank" aria-label="GitHub">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.207 11.387.6.11.793-.26.793-.577v-2.234c-3.338.726-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.091-.746.084-.731.084-.731 1.205.084 1.838 1.237 1.838 1.237 1.07 1.835 2.809 1.304 3.495.996.108-.774.418-1.304.762-1.604-2.665-.3-5.466-1.334-5.466-5.93 0-1.31.468-2.382 1.236-3.221-.124-.302-.536-1.521.117-3.176 0 0 1.01-.322 3.31 1.23a11.49 11.49 0 013.02-.407c1.026.005 2.056.139 3.02.407 2.3-1.552 3.31-1.23 3.31-1.23.653 1.655.241 2.874.117 3.176.77.839 1.236 1.911 1.236 3.221 0 4.606-2.807 5.625-5.475 5.92.429.369.823 1.096.823 2.21v3.28c0 .321.192.694.801.576C20.565 21.795 24 17.297 24 12c0-6.627-5.373-12-12-12z" />
           </svg>
@@ -358,6 +425,7 @@
       const navbarLinks = document.querySelector('.navbar-links');
   
       burger.addEventListener('click', () => {
+        burger.classList.toggle('active');
         navbarLinks.classList.toggle('active');
       });
     </script>

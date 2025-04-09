@@ -74,14 +74,30 @@
         .burger {
           display: none;
           flex-direction: column;
-          gap: 5px;
+          gap: 7px;
           cursor: pointer;
+          z-index: 99;
+          position: relative;
         }
     
         .burger div {
           width: 25px;
-          height: 3px;
+          height: 2px;
           background-color: #000;
+          transition: all 0.3s ease;
+        }
+    
+        /* Burger Animation Classes */
+        .burger.active div:nth-child(1) {
+          transform: rotate(-45deg) translate(-5px, 6px);
+        }
+    
+        .burger.active div:nth-child(2) {
+          opacity: 0;
+        }
+    
+        .burger.active div:nth-child(3) {
+          transform: rotate(45deg) translate(-5px, -6px);
         }
     
         /* Hero Section Styles */
@@ -150,19 +166,23 @@
     
           .navbar-links {
             display: none;
-            flex-direction: column;
-            gap: 15px;
-            position: absolute;
-            top: 70px;
-            right: 30px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            width: 250px;
             background-color: #ffffff;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
+            flex-direction: column;
+            padding: 80px 40px;
+            gap: 20px;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100%);
           }
     
           .navbar-links.active {
             display: flex;
+            transform: translateX(0);
           }
         }
         /*footer*/
@@ -371,6 +391,7 @@
       const navbarLinks = document.querySelector('.navbar-links');
   
       burger.addEventListener('click', () => {
+        burger.classList.toggle('active');
         navbarLinks.classList.toggle('active');
       });
     </script>
