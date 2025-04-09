@@ -567,44 +567,120 @@ body {
 }
 /* LAYOUTS */
 .GRID-3 {
-  DISPLAY: flex;
-  /* GRID-TEMPLATE-COLUMNS: 1FR 1FR 1FR; USE THIS FIRST, USE CODE BELOW WHEN ITS TIME FOR EXPLAINING RESPONSIVE DESIGN PART */
-  max-width: 510px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
   margin: 0 auto;
-  position: relative;
-  overflow: hidden;
-}
-#next, #back{
-  position: absolute;
-  color: black;
-  font-size: 1rem;
-  background: rgba(184, 184, 184, 0.348);
-  bottom: 1px;
-  width: 30px;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 30px;
-  z-index: 5;
-  cursor: pointer;
-  border-radius: 100%;
-}
-
-#next{
-  right: 1px;
-}
-#back{
-  left:1px
+  padding: 0 1rem;
 }
 
 .PORTFOLIO {
-  BORDER-RADIUS: VAR(--ITEMBORDERRADIUS);
-  min-width: 100%;
-  OVERFLOW: HIDDEN; /* SUPAYA GAMBAR YANG DIATAS ITU DIA NGIKUT BORDER RADIUSNYA, KARENA YANG DIKASIH BORDER RADIUS DISINI ADALAH DIV PORTFOLIO INI */
-  BORDER: 1PX SOLID VAR(--BORDERCOLOR);
-  transform: translateX(0%);
-  transition: all .5s;
+  background: #ffffff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.PORTFOLIO:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.PORTFOLIO-COVER {
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+}
+
+.PORTFOLIO img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.PORTFOLIO:hover img {
+  transform: scale(1.05);
+}
+
+.PORTFOLIO-INFO {
+  padding: 2rem;
+  background: #ffffff;
+}
+
+.PORTFOLIO-TITLE {
+  margin-bottom: 1rem;
+}
+
+.PORTFOLIO-TITLE h4 {
+  font-size: 1.5rem;
+  color: var(--PRIMARYTEXTCOLOR);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.PORTFOLIO-TAGS {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.PORTFOLIO-TAGS div {
+  font-size: 0.85rem;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  background: var(--THIRDBACKGROUNDCOLOR);
+  color: var(--PRIMARYICONCOLOR);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.PORTFOLIO-TAGS div:hover {
+  background: var(--PRIMARYICONCOLOR);
+  color: #ffffff;
+}
+
+.PORTFOLIO p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--SECONDARYTEXTCOLOR);
+  margin-top: 1rem;
+}
+
+.PORTFOLIO a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .GRID-3 {
+    grid-template-columns: 1fr;
+    padding: 0 1.5rem;
+  }
+  
+  .PORTFOLIO-COVER {
+    height: 200px;
+  }
+}
+
+#PORTFOLIOS {
+  background-color: var(--SECONDARYBACKGROUNDCOLOR);
+  padding: var(--SECTIONPADDING);
+}
+
+.PORTFOLIOS .SECTION-TITLE {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.PORTFOLIOS .PRE-TITLE {
+  margin: 0 auto;
+  margin-bottom: 1rem;
 }
 
 /* --- LOGO AND NAVIGATION MENU --- */
@@ -744,8 +820,6 @@ NAV UL LI A {
 #PORTFOLIOS {
   PADDING: VAR(--SECTIONPADDING);
 }
-
-
 
 .PORTFOLIO-COVER {
   HEIGHT: 250PX;
